@@ -20,7 +20,8 @@
           </mat-error>
         </mat-form-field>
       </form>
-      <button mat-flat-button id="sign-in-button" class="flat-button" type="button" [disabled]="!signInForm.valid">{{
+      <button mat-flat-button id="sign-in-button" class="flat-button" type="button" [disabled]="!signInForm.valid"
+        (click)="clickSignInButton()">{{
         'signInPage.signInButton' | translate }}</button>
     </div>
   </div>

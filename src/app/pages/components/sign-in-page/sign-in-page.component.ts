@@ -1,6 +1,14 @@
+import { Observable } from 'rxjs';
+import { RoutingService } from 'src/app/core/services/routing.service';
+
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+
+import { UrlConst } from '../../constants/url-const';
+import { SignInRequestDto } from '../../models/dtos/requests/sign-in-request-dto';
+import { SignInResponseDto } from '../../models/dtos/responses/sign-in-response-dto';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-sign-in-page',
@@ -16,7 +24,12 @@ export class SignInPageComponent implements OnInit {
     signInUserPassword: this.signInUserPassword
   });
 
-  constructor(private formBuilder: FormBuilder, public translateService: TranslateService) {}
+  constructor(
+    private routingService: RoutingService,
+    private accountService: AccountService,
+    private formBuilder: FormBuilder,
+    public translateService: TranslateService
+  ) {}
 
   /**
    * on init
@@ -24,6 +37,17 @@ export class SignInPageComponent implements OnInit {
   ngOnInit(): void {
     // Sets language from browser settings.
     this.setupLanguage();
+  }
+
+  /**
+   * Clicks sign in button
+   */
+  clickSignInButton() {
+    // Creates request dto.
+    const signInRequestDto = this.createSignInRequestDto();
+
+    // Signs in using dto.
+    this.signIn(signInRequestDto);
   }
 
   // --------------------------------------------------------------------------------
@@ -46,5 +70,24 @@ export class SignInPageComponent implements OnInit {
       return splittedLanguage[0];
     }
     return language;
+  }
+
+  private signIn(signInRequestDto: SignInRequestDto) {
+    // Signs in and gets response dto.
+    const signInResponseDto: Observable<SignInResponseDto> = this.accountService.signIn(signInRequestDto);
+    signInResponseDto.subscribe((responseDto) => {
+      if (responseDto != null) {
+        // Moves to the Product listing page.
+        this.routingService.navigate(UrlConst.PATH_PRODUCT_LISTING);
+      }
+    });
+  }
+
+  private createSignInRequestDto(): SignInRequestDto {
+    // Creates Request.
+    return {
+      Username: this.signInUserAccount.value,
+      Password: this.signInUserPassword.value
+    };
   }
 }
