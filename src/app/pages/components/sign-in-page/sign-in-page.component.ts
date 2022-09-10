@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs';
+import { LoadingService } from 'src/app/core/services/loading.service';
 import { RoutingService } from 'src/app/core/services/routing.service';
 
 import { Component, OnInit } from '@angular/core';
@@ -26,9 +27,10 @@ export class SignInPageComponent implements OnInit {
   });
 
   constructor(
-    private routingService: RoutingService,
     private accountService: AccountService,
     private formBuilder: FormBuilder,
+    private loadingService: LoadingService,
+    private routingService: RoutingService,
     public translateService: TranslateService
   ) {}
 
@@ -74,6 +76,8 @@ export class SignInPageComponent implements OnInit {
   }
 
   private signIn(signInRequestDto: SignInRequestDto) {
+    // Starts Loading.
+    this.loadingService.startLoading();
     // Signs in and gets response dto.
     const signInResponseDto: Observable<SignInResponseDto> = this.accountService.signIn(signInRequestDto);
     signInResponseDto.subscribe((responseDto) => {
@@ -83,6 +87,8 @@ export class SignInPageComponent implements OnInit {
         // Moves to the Product listing page.
         this.routingService.navigate(UrlConst.PATH_PRODUCT_LISTING);
       }
+      // Stops Loading.
+      this.loadingService.stopLoading();
     });
   }
 
@@ -104,13 +110,5 @@ export class SignInPageComponent implements OnInit {
     user.userTimezoneOffset = responseDto.userTimezoneOffset;
     user.userCurrency = responseDto.userCurrency;
     this.accountService.setUser(user);
-
-    console.log('SignInPageComponent #setUpUserAccount() user.userAccount:' + user.userAccount);
-    console.log('SignInPageComponent #setUpUserAccount() user.userName:' + user.userName);
-    console.log('SignInPageComponent #setUpUserAccount() user.userLocale:' + user.userLocale);
-    console.log('SignInPageComponent #setUpUserAccount() user.userLanguage:' + user.userLanguage);
-    console.log('SignInPageComponent #setUpUserAccount() user.userTimezone:' + user.userTimezone);
-    console.log('SignInPageComponent #setUpUserAccount() user.userTimezoneOffset:' + user.userTimezoneOffset);
-    console.log('SignInPageComponent #setUpUserAccount() user.userCurrency:' + user.userCurrency);
   }
 }
