@@ -1,4 +1,5 @@
 import { catchError, Observable, of } from 'rxjs';
+import { ErrorMessagingService } from 'src/app/core/services/error-messaging.service';
 import { SessionStorageService } from 'src/app/core/services/session-storage.service';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -14,7 +15,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AccountService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private errorMessageService: ErrorMessagingService) {}
 
   signIn(signInRequestDto: SignInRequestDto): Observable<SignInResponseDto> {
     const webApiUrl = ApiConst.PATH_API_ROOT + ApiConst.PATH_SIGN_IN;
@@ -24,6 +25,7 @@ export class AccountService {
 
     return this.http.post<SignInResponseDto>(webApiUrl, signInRequestDto, { headers }).pipe(
       catchError((error) => {
+        this.errorMessageService.setupPageErrorMessageFromResponse(error);
         return of(null as SignInResponseDto);
       })
     );

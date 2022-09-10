@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { CoreModule } from '../core/core.module';
 import { MaterialModule } from '../material/material.module';
 import { NgxTranslateModule } from '../ngx-translate/ngx-translate.module';
 import {
@@ -27,7 +28,7 @@ import {
     StockRegisteringPageComponent,
     PurchaseHistoryListingPageComponent
   ],
-  imports: [CommonModule, HttpClientModule, MaterialModule, ReactiveFormsModule, NgxTranslateModule],
+  imports: [CoreModule, CommonModule, HttpClientModule, MaterialModule, ReactiveFormsModule, NgxTranslateModule],
   exports: [
     SignInPageComponent,
     ProductListingPageComponent,
