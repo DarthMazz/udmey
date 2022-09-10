@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head class="header">
+
+<body class="body-wrapper">
+  <header class="header-wrapper">
+    <ul>
+      <li>EXAPMLE SITE</li>
+      <li>商品</li>
+      <li>購入</li>
+      <li>在庫</li>
+    </ul>
+  </header>
+  <section class="registering-page-wrapper">
+    <div class="registering-title-wrapper">
+      <div class="registering-title">
+        <h1>商品登録</h1>
+      </div>
+    </div>
+    <div class="registering-criteria-wrapper">
+      <div class="registering-criteria">
+        <form>
+          <div class="registering-area-wrapper left">
+            <div class="registering-condition-wrapper">
+              <input id="product-code" type="text" placeholder="*商品コード">
+            </div>
+            <div class="registering-condition-wrapper">
+              <input id="product-name" type="text" placeholder="*商品名">
+            </div>
+            <div class="registering-condition-wrapper">
+              <select id="product-genre" value="">
+                <option value='' disabled selected style='display:none;'>*ジャンル</option>
+                <option value="1">靴・スニーカー</option>
+                <option value="2">トップス</option>
+                <option value="3">バッグ</option>
+              </select>
+            </div>
+            <div class="registering-condition-wrapper">
+              <input id="product-size-standard" type="text" placeholder="サイズ・規格">
+            </div>
+            <div class="registering-condition-wrapper">
+              <input id="product-color" type="text" placeholder="色">
+            </div>
+            <div class="registering-condition-wrapper">
+              <input id="product-unit-price" type="text" placeholder="*単価">
+            </div>
+            <div class="registering-condition-wrapper">
+              <input id="end-of-sale" type="checkbox" name="product-end" value="1">販売終了
+            </div>
+            <div class="registering-condition-wrapper">
+              <input id="end-of-sale-date" type="text" placeholder="販売終了日">
+            </div>
+          </div>
+          <div class="registering-area-wrapper right">
+            <p>商品イメージ</p>
+            <img src="img/ABCD123.png" class="image-preview" />
+            <a id="file-input-button" href="#" class="button active">画像のアップロード</a>
+            <a id="file-input-clear-button" href="#" class="button">画像のクリア</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="registering-functions-wrapper">
+      <div class="registering-functions">
+        <a id="return-button" href="ProductListingPage.html" class="button">戻る</a>
+        <a id="save-button" href="#" class="button active">登録</a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer-wrapper">
+    <p>©copy right</p>
+  </footer>
+</body>
+
+</html>

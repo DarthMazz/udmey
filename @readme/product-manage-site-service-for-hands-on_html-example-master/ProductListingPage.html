@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+</head class="header">
+
+<body class="body-wrapper">
+  <header class="header-wrapper">
+    <ul>
+      <li>EXAPMLE SITE</li>
+      <li>商品</li>
+      <li>購入</li>
+      <li>在庫</li>
+    </ul>
+  </header>
+  <section class="listing-page-wrapper">
+    <div class="listing-title-wrapper">
+      <h1>商品一覧</h1>
+    </div>
+    <div class="search-criteria-wrapper">
+      <form>
+        <div class="search-criteria">
+          <div class="search-condition-wrapper">
+            <input id="product-name" type="text" placeholder="商品名">
+          </div>
+          <div class="search-condition-wrapper">
+            <input id="product-code" type="text" placeholder="商品コード">
+          </div>
+          <div class="search-condition-wrapper">
+            <select id="product-genre-label" value="">
+              <option value='' disabled selected style='display:none;'>ジャンル</option>
+              <option value="1">靴・スニーカー</option>
+              <option value="2">トップス</option>
+              <option value="3">バッグ</option>
+            </select>
+          </div>
+          <div class="search-condition-wrapper">
+            <input id="end-of-sale" type="checkbox" value="1">販売終了
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="search-functions-wrapper">
+      <div class="search-functions-paginator">
+        -- Paginator area --
+      </div>
+      <div class="search-functions-buttons">
+        <a href="#" id="new-button" class="button">新規</a>
+        <a href="#" id="clear-button" class="button">クリア</a>
+        <a href="#" id="search-button" class="button active">検索</a>
+      </div>
+    </div>
+    <div class="search-results-wrapper">
+      <table class="search-results">
+        <thead>
+          <tr>
+            <th class="width-no">No.</th>
+            <th class="width-product-name">商品名</th>
+            <th class="width-product-code">商品コード</th>
+            <th class="width-product-genre">ジャンル</th>
+            <th class="width-product-image">イメージ</th>
+            <th class="width-product-size">サイズ・規格</th>
+            <th class="width-product-color">色</th>
+            <th class="width-product-unit-price">単価</th>
+            <th class="width-product-stock">在庫数</th>
+            <th class="width-product-end">販売終了</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="width-no">1</td>
+            <td class="width-product-name product-name">花柄のスニーカー</td>
+            <td class="width-product-code"><a href="ProductRegisteringPage.html">ABCD123</a></td>
+            <td class="width-product-genre">靴・スニーカー</td>
+            <td class="width-product-image"><img src="img/ABCD123.png" /></td>
+            <td class="width-product-size product-size">24,25,26,27cm</td>
+            <td class="width-product-color">花柄</td>
+            <td class="width-product-unit-price product-unit-price">2,500</td>
+            <td class="width-product-stock product-stock">500</td>
+            <td class="width-product-end">-</td>
+          </tr>
+          <tr>
+            <td class="width-no">2</td>
+            <td class="width-product-name product-name">男性革靴</td>
+            <td class="width-product-code"><a href="ProductRegisteringPage.html">ABCD456</a></td>
+            <td class="width-product-genre">靴・スニーカー</td>
+            <td class="width-product-image"><img src="img/ABCD456.png" /></td>
+            <td class="width-product-size product-size">25,26,27,28cm</td>
+            <td class="width-product-color">茶</td>
+            <td class="width-product-unit-price product-unit-price">12,800</td>
+            <td class="width-product-stock product-stock">100</td>
+            <td class="width-product-end">-</td>
+          </tr>
+          <tr>
+            <td class="width-no">3</td>
+            <td class="width-product-name product-name">カバン</td>
+            <td class="width-product-code"><a href="ProductRegisteringPage.html">XYZ0123</a></td>
+            <td class="width-product-genre">バッグ</td>
+            <td class="width-product-image"><img src="img/XYZ0123.png" /></td>
+            <td class="width-product-size product-size">フリー</td>
+            <td class="width-product-color">茶</td>
+            <td class="width-product-unit-price product-unit-price">8,800</td>
+            <td class="width-product-stock product-stock">200</td>
+            <td class="width-product-end">-</td>
+          </tr>
+          <tr>
+            <td class="width-no">4</td>
+            <td class="width-product-name product-name">セーター</td>
+            <td class="width-product-code"><a href="ProductRegisteringPage.html">ABCD654</a></td>
+            <td class="width-product-genre">トップス</td>
+            <td class="width-product-image"><img src="img/ABCD654.png" /></td>
+            <td class="width-product-size product-size">S/M/L</td>
+            <td class="width-product-color">グレー</td>
+            <td class="width-product-unit-price product-unit-price">7,800</td>
+            <td class="width-product-stock product-stock">300</td>
+            <td class="width-product-end">-</td>
+          </tr>
+          <tr>
+            <td class="width-no">5</td>
+            <td class="width-product-name product-name">ビジネスバッグ</td>
+            <td class="width-product-code"><a href="ProductRegisteringPage.html">XYZ3210</a></td>
+            <td class="width-product-genre">バッグ</td>
+            <td class="width-product-image"><img src="img/XYZ3210.png" /></td>
+            <td class="width-product-size product-size">30×70cm</td>
+            <td class="width-product-color">黒/茶</td>
+            <td class="width-product-unit-price product-unit-price">24,000</td>
+            <td class="width-product-stock product-stock">400</td>
+            <td class="width-product-end">-</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <footer class="footer-wrapper">
+    <p>©copy right</p>
+  </footer>
+</body>
+
+</html>
