@@ -10,7 +10,17 @@ describe('ErrorMessagingService', () => {
     service = TestBed.inject(ErrorMessagingService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  describe('#constractor', () => {
+    it('should be created', () => {
+      expect(service).toBeTruthy();
+    });
+  });
+
+  describe('#getMessageProperty, #setMessageProperty', () => {
+    it('should return expected response', () => {
+      const expectedValue = 'message';
+      service.setMessageProperty(expectedValue);
+      expect(service.getMessageProperty()).toEqual(expectedValue);
+    });
   });
 });
